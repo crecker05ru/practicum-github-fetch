@@ -70,13 +70,17 @@ async function onSubmit(event) {
         renderEmptyResults()
       }else if (data.total_count !== 0){
         renderCount(data.total_count)
+        let result = ``
         for (let item of data.items){
           console.log('template',template(item))
-          // document.body.appendChild(template(item))
-          resultsContainer.appendChild(template(item))
+          result += template(item).outerHTML
+          
+          // resultsContainer.innerHTML = template(item).outerHTML
         }
+        console.log('result',result)
+        resultsContainer.innerHTML = result
         
-        // data.items.forEach(item => template(item))
+        // resultsContainer.innerHTML = `${data.items.map(item => template(item))}`
         // for(let i = 0; i < data.items.length; i++){
         //   console.log(template(data.items[i]))
         //     return template(data.items[i])
