@@ -42,9 +42,8 @@ function template(item) {
   const newElement = document.createElement('li');
   newElement.classList.add('search__finding-item');
   newElement.innerHTML = `
-      <p class="search__finding-name">
-          ${item.full_name}
-      </p>
+  <a class="search__finding-link" target="_blank" href=${item.html_url}>${item.full_name}</a>
+  <span class="search__finding-description">${item.description}</span>
 	`;
   // document.body.appendChild(newElement)
   return newElement;
